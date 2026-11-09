@@ -1,0 +1,19 @@
+# Highlight the DSL series first, followed by other news. Use years when exact dates are unavailable.
+- year: 2026
+  text: "*Discrete Stochastic Localization* at **NeurIPS 2026**, **Poster**."
+  paper_id: discrete-stochastic-localization
+- year: 2026
+  text: "*DSL-LLaDA* in **Findings of EMNLP 2026**."
+  paper_id: dsl-llada
+- year: 2025
+  text: "*Discrete Stochastic Localization* at the **NeurIPS Frontiers in Probabilistic Inference Workshop**."
+  paper_id: discrete-stochastic-localization-workshop
+- year: 2026
+  text: "*Multiverse Mechanica* at **ICLR 2026**."
+  paper_id: multiverse-mechanica
+- year: 2024
+  text: "*Your Diffusion Model is Secretly a Noise Classifier and Benefits from Contrastive Training* at **NeurIPS 2024**."
+  paper_id: contrastive-diffusion-loss
+- year: 2024
+  text: "*Less is More for Long Document Summary Evaluation by LLMs* at **EACL 2024**, **Oral & Poster**."
+  paper_id: less-is-more-summary-evaluation

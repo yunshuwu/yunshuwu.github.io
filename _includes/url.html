@@ -1,0 +1,9 @@
+{%- assign target = include.url | default: '' -%}
+{%- assign prefix = target | slice: 0, 2 -%}
+{%- assign first = target | slice: 0, 1 -%}
+{%- if target contains '://' or prefix == '//' or first == '#' or target contains 'mailto:' or target contains 'tel:' -%}
+  {{- target -}}
+{%- else -%}
+  {%- if prefix == './' -%}{%- assign target = target | remove_first: './' -%}{%- endif -%}
+  {{- target | relative_url -}}
+{%- endif -%}

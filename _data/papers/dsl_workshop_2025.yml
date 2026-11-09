@@ -1,0 +1,18 @@
+# Title, five authors, and complete abstract transcribed from the author-supplied original PDF.
+# Workshop name: https://fpineurips.framer.website/call_for_papers
+# OpenReview forum/API access was blocked during verification; no exact publication date inferred.
+{
+  "title": "Discrete Stochastic Localization for Non-Autoregressive Generation",
+  "authors": [
+    "Yunshu Wu",
+    "Jiayi Cheng",
+    "Rob Brekelmans",
+    "Evangelos E. Papalexakis",
+    "Greg Ver Steeg"
+  ],
+  "year": "2025",
+  "conference": "NeurIPS 2025 Workshop: Frontiers in Probabilistic Inference: Sampling Meets Learning",
+  "pdf": "/publications/discrete-stochastic-localization-2025-workshop/NIPS25_39_Discrete_Stochastic_Localiz.pdf",
+  "openreview": "https://openreview.net/forum?id=y4gmj1Gwpl",
+  "abstract": "While autoregressive methods dominate language modeling, the promise of faster generation and more flexible control continues to spur interest in non-autoregressive approaches. Early efforts to adapt diffusion models with continuous Gaussian noise to discrete data have been superseded by discrete diffusion approaches based on adding and removing mask noise. The relative success of masked diffusion methods is somewhat puzzling because continuous noise appears to be more general as it can smoothly interpolate between complete masking and unmasking. We explore a new approach to non-autoregressive generative modeling based on discrete stochastic localization that leads to greater flexibility in noising and denoising. Masked discrete diffusion, continuous diffusion, and autoregressive models emerge as particular Signal-to-Noise Ratio (SNR) paths in our approach. We demonstrate that our approach is able to outperform existing continuous diffusion approaches on language modeling, and discuss the potential to close the gap with more established fully discrete approaches like masked diffusion models and autoregressive models. Code is anonymously available at https://anonymous.4open.science/r/DSL_anonymous-1833."
+}

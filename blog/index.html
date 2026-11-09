@@ -1,0 +1,13 @@
+---
+layout: homepage
+nav: blog
+title: Blog
+description: Research notes, paper introductions, and longer-form writing.
+permalink: /blog/
+---
+<h1>Blog</h1>
+<p>Research notes, paper introductions, and longer-form writing.</p>
+{% assign posts = site.posts | sort: 'date' | reverse %}
+{% if posts.size > 0 %}
+<ul class="content-list">{% for post in posts %}{% include post-entry.html post=post %}{% endfor %}</ul>
+{% else %}<p>No posts published yet. Please check back soon.</p>{% endif %}

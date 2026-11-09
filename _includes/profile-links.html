@@ -1,0 +1,18 @@
+<ul class="profile-links" aria-label="Contact and profiles">
+  {% assign fields = 'email,twitter,linkedin,github_link,google_scholar' | split: ',' %}
+  {% assign labels = 'Email,Twitter,LinkedIn,GitHub,Google Scholar' | split: ',' %}
+  {% assign icons = 'fa-solid fa-envelope,fab fa-x-twitter,fab fa-linkedin,fab fa-github,ai ai-google-scholar' | split: ',' %}
+  {% for field in fields %}
+  {% assign target = site[field] %}
+  {% assign label = labels[forloop.index0] %}
+  <li>
+    {% if target and target != '' %}
+    <a href="{% if field == 'email' %}mailto:{% endif %}{{ target | escape }}"{% if field == 'email' %} aria-label="Email: {{ target | escape }}"{% endif %}>
+      <i class="{{ icons[forloop.index0] }}" aria-hidden="true"></i>{{ label }}
+    </a>
+    {% else %}
+    <span class="profile-link-pending" aria-disabled="true"><i class="{{ icons[forloop.index0] }}" aria-hidden="true"></i>{{ label }}</span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

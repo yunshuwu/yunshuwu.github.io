@@ -1,0 +1,12 @@
+<li class="content-entry" id="talk-{{ include.talk.id | escape }}">
+  <h3>{% if include.compact %}<a href="{{ '/talks/' | relative_url }}#talk-{{ include.talk.id | escape }}">{{ include.talk.title | escape }}</a>{% else %}{{ include.talk.title | escape }}{% endif %}</h3>
+  <p class="entry-meta"><time datetime="{{ include.talk.date | date: '%Y-%m-%d' }}">{{ include.talk.date | date: '%B %-d, %Y' }}</time>{% if include.talk.event %} · {{ include.talk.event | escape }}{% endif %}{% if include.talk.location %} · {{ include.talk.location | escape }}{% endif %}</p>
+  {% if include.talk.description %}<p>{{ include.talk.description | escape }}</p>{% endif %}
+  {% capture related_links %}
+    {% include resource-links.html item=include.talk %}
+    {% for paper_id in include.talk.paper_ids %}{% assign paper = site.data.publications.main | where: 'id', paper_id | first %}{% if paper %}<a href="{{ '/publications/' | relative_url }}#paper-{{ paper.id | escape }}">Paper: {{ paper.title | escape }}</a>{% endif %}{% endfor %}
+    {% for post_id in include.talk.post_ids %}{% assign post = site.posts | where: 'content_id', post_id | first %}{% if post %}<a href="{{ post.url | relative_url }}">Blog: {{ post.title | escape }}</a>{% endif %}{% endfor %}
+  {% endcapture %}
+  {% assign related_links = related_links | strip %}
+  {% if related_links != empty %}<div class="resource-links">{{ related_links }}</div>{% endif %}
+</li>

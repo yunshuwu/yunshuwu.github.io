@@ -1,22 +1,162 @@
+# Sources: Yunshu_resume.pdf and author-supplied publication updates.
+# DSL papers are prioritized; status and source details are documented in README.md.
 main:
-
-  - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
-    authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
-    conference_short: MICCAI
-    conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
-    pdf: https://arxiv.org/pdf/2306.00988.pdf
-    code: https://github.com/MrGiovanni/ContinualLearning
-    bibtex: https://bib.yliu.me/MICCAI23.txt
-    image: ./assets/img/teaser_example_2.png
-    notes: Early Accept
-
-  - title: "Mnemonics Training: Multi-Class Incremental Learning without Forgetting"
-    authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
-    conference_short: CVPR
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
-    pdf: https://arxiv.org/pdf/2002.10211.pdf
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-    notes: Oral Presentation
-    image: ./assets/img/teaser_example.png
+- id: discrete-stochastic-localization
+  selected: true
+  image: /assets/img/publications/dsl-state-space.png
+  image_alt: DSL state space with token anchors and noisy decoding trajectories
+  title: Discrete Stochastic Localization for Non-autoregressive Generation
+  authors: <strong>Yunshu Wu</strong>, Jiayi Cheng, Longxuan Yu, Partha Thakuria, Rob Brekelmans, Evangelos E. Papalexakis, Greg
+    Ver Steeg
+  conference: Advances in Neural Information Processing Systems (NeurIPS), 2026.
+  conference_short: NeurIPS
+  conference_year: 2026
+  pdf: https://arxiv.org/abs/2602.16169
+  contribution: A diffusion language modeling framework for robust parallel decoding and efficient, high-quality
+    generation.
+  notes: Poster
+  page: https://yunshuwu.github.io/dsl-project-page/
+- id: dsl-llada
+  selected: true
+  image: /assets/img/publications/dsl-llada.png
+  image_alt: Comparison of masked LLaDA training and DSL-LLaDA continuous per-token denoising
+  title: 'DSL-LLaDA: Scaling Continuous Denoising to 8B Masked Diffusion LMs'
+  authors: Longxuan Yu†, <strong>Yunshu Wu</strong>†, Yu Fu, Siheng Xiong, Rob Brekelmans, Hui Liu, Yue Dong, Greg Ver Steeg
+  conference: Findings of the Association for Computational Linguistics (EMNLP), 2026.
+  conference_short: EMNLP
+  conference_badge: EMNLP 2026
+  conference_year: 2026
+  pdf: https://aclanthology.org/2026.findings-emnlp.2101/
+  contribution: Scaling diffusion language modeling to LLaDA-8B for few-step generation and selective error correction.
+  page: /projects/#project-dsl-llada
+- id: discrete-stochastic-localization-workshop
+  selected: true
+  image: /assets/img/publications/dsl-state-space.png
+  image_alt: DSL state space with token anchors and noisy decoding trajectories
+  title: Discrete Stochastic Localization for Non-Autoregressive Generation
+  authors: <strong>Yunshu Wu</strong>, Jiayi Cheng, Rob Brekelmans, Evangelos E. Papalexakis, Greg
+    Ver Steeg
+  conference: 'NeurIPS 2025 Workshop: Frontiers in Probabilistic Inference: Sampling Meets Learning (FPI).'
+  conference_short: FPI
+  conference_badge: NeurIPS 2025 Workshop
+  conference_year: 2025
+  pdf: /publications/discrete-stochastic-localization-2025-workshop/NIPS25_39_Discrete_Stochastic_Localiz.pdf
+  pdf_label: PDF
+  paper_page: /publications/discrete-stochastic-localization-2025-workshop/
+  openreview: https://openreview.net/forum?id=y4gmj1Gwpl
+  bibtex: /publications/discrete-stochastic-localization-2025-workshop/citation.bib
+  contribution: The workshop version introducing DSL for non-autoregressive generation.
+  notes: Original 2025 workshop version
+  page: /publications/discrete-stochastic-localization-2025-workshop/
+- id: multiverse-mechanica
+  image: /assets/img/publications/multiverse-mechanica.svg
+  image_alt: Concept illustration of counterfactual worlds sharing game mechanics
+  title: 'Multiverse Mechanica: A Testbed for Learning Game Mechanics via Counterfactual Worlds'
+  authors: <strong>Yunshu Wu</strong>†, Robert Ness†, Ricardo Cannizzaro†, Lars Kunze
+  conference: International Conference on Learning Representations (ICLR), 2026.
+  conference_short: ICLR
+  conference_year: 2026
+  pdf: https://openreview.net/forum?id=5Q8r8ZubAH
+  contribution: A testbed for learning game mechanics through counterfactual worlds.
+  page: /projects/#project-multiverse-mechanica
+- id: personaeval
+  conference_short: COLM
+  conference_badge: COLM 2026 Workshop
+  image: /assets/img/publications/personaeval.svg
+  image_alt: Concept illustration of persona-based user simulation and evaluation
+  title: 'PersonaEval: Persona-Based User Simulation for Evaluating Interactive Applications'
+  conference: 'COLM 2026 Workshop: Social Simulation with LLMs: Fidelity in Applications.'
+  conference_year: 2026
+  pdf: https://openreview.net/forum?id=MbfVXaNtbc&noteId=MbfVXaNtbc
+  notes: Workshop
+- id: microverse
+  conference_short: COLM
+  conference_badge: COLM 2026 Workshop
+  image: /assets/img/publications/microverse.svg
+  image_alt: Concept illustration of multi-agent interaction and identity over time
+  title: 'MicroVerse: An Instrument for Measuring Self-Authored Identity Drift in Long-Horizon Multi-Agent Language-Model
+    Simulations'
+  conference: 'COLM 2026 Workshop: Social Simulation with LLMs: Fidelity in Applications.'
+  conference_year: 2026
+  pdf: https://openreview.net/forum?id=ioCkhd9VKO&noteId=ioCkhd9VKO
+  notes: Workshop
+- id: synthetic-persona-grounding
+  conference_short: COLM
+  conference_badge: COLM 2026 Workshop
+  image: /assets/img/publications/synthetic-persona-grounding.svg
+  image_alt: Concept illustration of evidence grounding and standardized persona reporting
+  title: 'Position: Synthetic Persona Needs Explicit Grounding and Standardized Reporting'
+  conference: 'COLM 2026 Workshop: Social Simulation with LLMs: Fidelity in Applications.'
+  conference_year: 2026
+  pdf: https://openreview.net/forum?id=xMJWR38BZX&noteId=xMJWR38BZX
+  notes: Workshop
+- id: contrastive-diffusion-loss
+  image: /assets/img/publications/contrastive-diffusion-loss.png
+  image_alt: Paper figure showing score-estimation error and parallel sampling trajectories
+  title: Your Diffusion Model is Secretly a Noise Classifier and Benefits from Contrastive Training
+  authors: <strong>Yunshu Wu</strong>, Yingtao Luo, Xianghao Kong, Evangelos E. Papalexakis, Greg Ver Steeg
+  conference: Advances in Neural Information Processing Systems (NeurIPS), 2024.
+  conference_short: NeurIPS
+  conference_year: 2024
+  pdf: https://proceedings.neurips.cc/paper_files/paper/2024/file/38d67d1df644cf2efe9ebd5521741dc5-Paper-Conference.pdf
+  contribution: Contrastive Diffusion Loss (CDL) improves diffusion training and image sampling quality.
+  page: /projects/#project-contrastive-diffusion
+- id: less-is-more-summary-evaluation
+  image: /assets/img/publications/less-is-more-summary-evaluation.png
+  image_alt: Paper overview of extract-then-evaluate long-document summary evaluation
+  title: Less is More for Long Document Summary Evaluation by LLMs
+  authors: <strong>Yunshu Wu</strong>†, Hayate Iso†, Pouya Pezeshkpour, Nikita Bhutani, Estevam Hruschka
+  conference: European Chapter of the Association for Computational Linguistics (EACL), 2024.
+  conference_short: EACL
+  conference_year: 2024
+  pdf: https://aclanthology.org/2024.eacl-short.29.pdf
+  notes: Oral & Poster
+  contribution: Efficient LLM-based evaluation of long-document summaries with improved agreement with human judgments.
+- id: parallel-semisort
+  image: /assets/img/publications/parallel-semisort.png
+  image_alt: Paper figure illustrating sampling, blocked distribution and local refinement in semisort
+  title: High-Performance and Flexible Parallel Algorithms for Semisort and Related Problems
+  authors: Xiaojun Dong, <strong>Yunshu Wu</strong>, Zhongqi Wang, Laxman Dhulipala, Yan Gu, Yihan Sun
+  conference: ACM Symposium on Parallelism in Algorithms and Architectures (SPAA), 2023.
+  conference_short: SPAA
+  conference_year: 2023
+  pdf: https://dl.acm.org/doi/pdf/10.1145/3558481.3591071
+- id: tenalign
+  image: /assets/img/publications/tenalign.png
+  image_alt: Paper overview of joint tensor alignment and coupled factorization
+  title: 'TENALIGN: Joint Tensor Alignment and Coupled Factorization'
+  authors: <strong>Yunshu Wu</strong>, Uday Singh Saini, Jia Chen, Evangelos E. Papalexakis
+  conference: IEEE International Conference on Data Mining (ICDM), 2022.
+  conference_short: ICDM
+  conference_year: 2022
+  pdf: https://www.cs.ucr.edu/~epapalex/papers/22-ICDM-TenAlign.pdf
+  notes: Full paper
+  contribution: Joint tensor alignment and coupled factorization for structured representation learning.
+- id: agents-learn-from-unpredictable-feedback
+  conference_short: Manuscript
+  conference_badge: Manuscript
+  image: /assets/img/publications/agents-learn-from-unpredictable-feedback.svg
+  image_alt: Concept illustration of agent feedback and prediction error
+  title: 'Agents Learn From What They Cannot Predict: Prediction Error Determines the Training Value of Environment
+    Feedback'
+  authors: <strong>Yunshu Wu</strong>†, Jiayi Cheng†, Xupeng Chen, Greg Ver Steeg
+  conference: Manuscript in preparation for submission to ICLR 2027.
+  contribution: Studying how prediction error identifies environment feedback that is valuable for agent training.
+- id: measurement-aligned-flows
+  conference_short: Preprint
+  conference_badge: Preprint
+  image: /assets/img/publications/measurement-aligned-flows.png
+  image_alt: Paper examples of inverse-problem image restoration under multiple noise conditions
+  title: Measurement-Aligned Flows for Inverse Problems
+  authors: Shaorong Zhang, Rob Brekelmans, <strong>Yunshu Wu</strong>, Greg Ver Steeg
+  conference: Manuscript submitted to AAAI 2026.
+  pdf: https://arxiv.org/pdf/2506.11893
+- id: spectral-regularization-diffusion
+  conference_short: Preprint
+  conference_badge: Preprint
+  image: /assets/img/publications/spectral-regularization-diffusion.png
+  image_alt: Paper comparison of ground-truth, baseline and spectrally regularized patterns
+  title: Spectral Regularization for Diffusion Models
+  authors: Satish Chandran, Nícolas Roque dos Santos, <strong>Yunshu Wu</strong>, Greg Ver Steeg, Evangelos Papalexakis
+  conference: Manuscript submitted to AAAI 2026.
+  pdf: https://arxiv.org/pdf/2603.02447

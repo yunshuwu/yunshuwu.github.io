@@ -1,0 +1,4 @@
+html[data-theme="dark"] {
+  & { --content-bg: #20212b; --content-border: #454752; --content-muted: #b2b4bd; --content-code-bg: #292b36; }
+  .profile-sidebar .profile-links a { color: #3eb7f0; }
+}

@@ -1,0 +1,16 @@
+---
+layout: homepage
+nav: talks
+title: Talks
+description: Research talks, presentations, and their accompanying materials.
+permalink: /talks/
+---
+<h1>Talks</h1>
+<p>Research talks, presentations, and accompanying materials.</p>
+{% assign talks = site.data.talks | where_exp: 'talk', 'talk.published != false' | sort: 'date' | reverse %}
+{% assign years = talks | group_by_exp: 'talk', "talk.date | date: '%Y'" %}
+{% for year in years %}
+<h2>{{ year.name }}</h2>
+<ul class="content-list">{% for talk in year.items %}{% include talk-entry.html talk=talk %}{% endfor %}</ul>
+{% endfor %}
+{% if talks.size == 0 %}<p>No talks listed yet. Please check back soon.</p>{% endif %}

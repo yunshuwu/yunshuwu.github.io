@@ -1,0 +1,37 @@
+---
+layout: homepage
+nav: publications
+title: Discrete Stochastic Localization for Non-Autoregressive Generation — 2025 Workshop
+description: Original 2025 NeurIPS FPI workshop paper by Yunshu Wu, Jiayi Cheng, Rob Brekelmans, Evangelos E. Papalexakis, and Greg Ver Steeg, with the original PDF and abstract.
+permalink: /publications/discrete-stochastic-localization-2025-workshop/
+paper_key: dsl_workshop_2025
+---
+{% assign paper = site.data.papers[page.paper_key] %}
+<article class="paper-detail">
+  <p class="entry-meta">Original 2025 workshop version</p>
+  <h1>{{ paper.title | escape }}</h1>
+  <p>{{ paper.authors | join: ', ' | escape }}</p>
+  <p><strong>{{ paper.conference | escape }}</strong><br>Publication year: <time datetime="2025">2025</time></p>
+  <nav class="resource-links" aria-label="Paper resources">
+    <a href="{{ paper.pdf | relative_url }}">PDF</a>
+    <a href="{{ paper.openreview | escape }}">OpenReview</a>
+    <a href="#bibtex">BibTeX</a>
+  </nav>
+
+  <h2>Abstract</h2>
+  <p>{{ paper.abstract | escape }}</p>
+
+  <h2>Version history</h2>
+  <ul>
+    <li><strong>2025 — Original workshop version.</strong> This page preserves the author list, abstract, and unmodified PDF of the original NeurIPS FPI workshop paper supplied by the author. The publication date is recorded at year precision.</li>
+    <li><strong>2026 — Later version.</strong> See the separate <a href="{{ '/publications/' | relative_url }}#paper-discrete-stochastic-localization">2026 publication entry</a> and <a href="https://yunshuwu.github.io/dsl-project-page/">project page</a>.</li>
+  </ul>
+
+  <h2 id="bibtex">BibTeX</h2>
+  <p><a href="{{ '/publications/discrete-stochastic-localization-2025-workshop/citation.bib' | relative_url }}">Download BibTeX</a> or select and copy the text below.</p>
+  <button type="button" id="copy-bibtex" hidden>Copy BibTeX</button>
+  <p id="copy-status" role="status"></p>
+  <pre class="paper-bibtex"><code id="bibtex-text">{% include_relative citation.bib %}</code></pre>
+  <p><a href="{{ '/publications/' | relative_url }}">All publications</a></p>
+</article>
+<script src="{{ '/assets/js/copy-bibtex.js' | relative_url }}" defer></script>

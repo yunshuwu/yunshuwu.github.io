@@ -1,0 +1,17 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% assign sitemap_pages = site.pages | sort: 'url' %}
+{% for entry in sitemap_pages %}{% if entry.layout and entry.sitemap != false %}
+  <url><loc>{{ entry.url | absolute_url | xml_escape }}</loc></url>
+{% endif %}{% endfor %}
+{% for entry in site.posts %}{% unless entry.sitemap == false %}
+  <url><loc>{{ entry.url | absolute_url | xml_escape }}</loc></url>
+{% endunless %}{% endfor %}
+{% for item in site.data.papers %}
+  <url><loc>{{ item[1].pdf | absolute_url | xml_escape }}</loc></url>
+{% endfor %}
+</urlset>

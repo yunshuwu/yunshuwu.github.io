@@ -1,0 +1,7 @@
+<nav class="site-nav" aria-label="Main navigation">
+  {% assign active_nav = page.nav %}
+  {% if page.layout == 'post' %}{% assign active_nav = 'blog' %}{% endif %}
+  {% for item in site.data.navigation %}
+  <a href="{{ item.url | relative_url }}"{% if active_nav == item.key %} aria-current="page"{% endif %}>{{ item.label | escape }}</a>
+  {% endfor %}
+</nav>

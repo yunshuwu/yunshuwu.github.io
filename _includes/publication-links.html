@@ -1,0 +1,9 @@
+{% assign paper = include.paper %}
+{% assign fields = 'blog,talk,twitter,linkedin' | split: ',' %}
+{% assign labels = 'Blog,Talk,Twitter / X,LinkedIn' | split: ',' %}
+{% for field in fields %}{% assign target = paper[field] %}{% if target and target != '' %}<a class="btn btn-sm" href="{% include url.html url=target %}">{{ labels[forloop.index0] }}</a>{% endif %}{% endfor %}
+{% if paper.id %}
+{% for post in site.posts %}{% if post.paper_ids contains paper.id %}<a class="btn btn-sm" href="{{ post.url | relative_url }}">Blog: {{ post.title | escape }}</a>{% endif %}{% endfor %}
+{% assign talks = site.data.talks | where_exp: 'talk', 'talk.published != false' | sort: 'date' | reverse %}
+{% for talk in talks %}{% if talk.paper_ids contains paper.id %}<a class="btn btn-sm" href="{{ '/talks/' | relative_url }}#talk-{{ talk.id | escape }}">Talk: {{ talk.title | escape }}</a>{% endif %}{% endfor %}
+{% endif %}

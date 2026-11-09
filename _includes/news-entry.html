@@ -1,0 +1,1 @@
+<li><span class="news-year">{% if include.item.date %}{{ include.item.date | date: '%b %Y' }}{% else %}{{ include.item.year }}{% endif %}</span><div>{{ include.item.text | markdownify }}{% if include.item.paper_id %}<a href="{{ '/publications/' | relative_url }}#paper-{{ include.item.paper_id | escape }}" class="news-link">Paper &rarr;</a>{% endif %}</div></li>

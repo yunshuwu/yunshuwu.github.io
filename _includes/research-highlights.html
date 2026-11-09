@@ -1,0 +1,9 @@
+<div class="research-highlights">
+{% for series in site.data.projects %}{% for project in series.projects %}{% if project.featured %}
+<div class="research-highlight">
+  <h3><a href="{{ '/projects/' | relative_url }}#project-{{ project.id | escape }}">{{ project.title | escape }}</a></h3>
+  <p>{{ project.description | escape }}</p>
+  <a href="{{ '/projects/' | relative_url }}#project-{{ project.id | escape }}">Explore research &rarr;</a>
+</div>
+{% endif %}{% endfor %}{% endfor %}
+</div>

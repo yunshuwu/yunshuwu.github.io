@@ -1,23 +1,26 @@
 ---
 layout: homepage
+nav: home
+title: Home
+description: Research by Yunshu Wu on diffusion methods, diffusion language models, and efficient generative modeling.
 ---
 
 ## About Me
 
-I am a Ph.D. student at ...
+I am **Yunshu Wu (吴云舒)**, currently at **Google**. My Ph.D. research at **UC Riverside** focused on **generative models** and **diffusion model**, advised by **Greg Ver Steeg** and **Evangelos E. Papalexakis**. Previously, I interned at Eigen AI, Microsoft Research, and Megagon Labs.
 
 ## Research Interests
 
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+- **Diffusion and generation:** diffusion language models, efficient sampling, and multimodal generation.
+- **Agents and evaluation:** video agents, environment feedback, world models, and interactive evaluation.
 
-## News
+{% include news.html %}
 
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
 
-{% include_relative _includes/publications.md %}
+## Selected Publications
 
-{% include_relative _includes/services.md %}
+<div class="selected-publications">
+{% include publications.md selected=true %}
+</div>
+
+[All publications &rarr;]({{ '/publications/' | relative_url }})

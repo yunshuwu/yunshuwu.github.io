@@ -1,0 +1,6 @@
+{% assign resource = include.item %}
+{% assign fields = 'slides,video,paper,project,twitter,linkedin' | split: ',' %}
+{% assign labels = 'Slides,Video,Paper,Project,Twitter / X,LinkedIn' | split: ',' %}
+{% for field in fields %}{% assign target = resource[field] %}{% if target and target != '' %}
+<a href="{% include url.html url=target %}">{{ labels[forloop.index0] }}</a>
+{% endif %}{% endfor %}

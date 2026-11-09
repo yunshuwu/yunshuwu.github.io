@@ -1,0 +1,10 @@
+<h2 id="news">News</h2>
+<ul class="news-list">
+{% for item in site.data.news limit:5 %}{% include news-entry.html item=item %}{% endfor %}
+</ul>
+{% if site.data.news.size > 5 %}
+<details class="news-archive">
+  <summary>Older news</summary>
+  <ul class="news-list">{% for item in site.data.news offset:5 %}{% include news-entry.html item=item %}{% endfor %}</ul>
+</details>
+{% endif %}

@@ -1,0 +1,32 @@
+---
+layout: homepage
+nav: projects
+title: Projects
+description: Research series by Yunshu Wu, featuring DSL, DSL-LLaDA, contrastive diffusion training, and world models.
+permalink: /projects/
+---
+<h1>Projects</h1>
+<p class="page-intro">Research organized by theme, with the DSL series at the center.</p>
+{% for series in site.data.projects %}
+<div class="project-series" id="series-{{ series.id | escape }}">
+  <h2>{{ series.title | escape }}</h2>
+  <p>{{ series.description | escape }}</p>
+  {% for project in series.projects %}
+  {% assign paper = site.data.publications.main | where: 'id', project.paper_id | first %}
+  <article class="project-entry" id="project-{{ project.id | escape }}">
+    <h3>{{ project.title | escape }}</h3>
+    <p>{{ project.description | escape }}</p>
+    {% if paper %}
+    <p class="entry-meta">{{ paper.conference }}</p>
+    <div class="resource-links">
+      <a href="{{ '/publications/' | relative_url }}#paper-{{ paper.id | escape }}">Publication details</a>
+      {% if paper.pdf %}<a href="{% include url.html url=paper.pdf %}">Paper</a>{% endif %}
+      {% if paper.page contains '://' %}<a href="{% include url.html url=paper.page %}">Project Page</a>{% endif %}
+      {% if paper.code %}<a href="{% include url.html url=paper.code %}">Code</a>{% endif %}
+      {% include publication-links.html paper=paper %}
+    </div>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+{% endfor %}

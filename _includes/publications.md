@@ -1,38 +1,46 @@
-<h2 id="publications" style="margin: 2px 0px -15px;">Publications</h2>
-
 <div class="publications">
 <ol class="bibliography">
 
-{% for link in site.data.publications.main %}
+{% assign papers = site.data.publications.main %}
+{% if include.selected %}{% assign papers = papers | where: 'selected', true %}{% endif %}
+{% for link in papers %}
 
-<li>
+<li{% if link.id %} id="paper-{{ link.id | escape }}"{% endif %}>
 <div class="pub-row">
-  <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    {% if link.image %} 
-    <img src="{{ link.image }}" class="teaser img-fluid z-depth-1" style="width=100;height=40%">
-    {% if link.conference_short %} 
-    <abbr class="badge">{{ link.conference_short }}</abbr>
-    {% endif %}
+  {% if link.image %}
+  <div class="col-sm-3 abbr" >
+    {% if include.selected and link.page %}<a href="{% include url.html url=link.page %}">{% endif %}
+    <img src="{% include url.html url=link.image %}" alt="{{ link.image_alt | default: link.title | escape }}" loading="lazy" class="teaser img-fluid z-depth-1">
+    {% if include.selected and link.page %}</a>{% endif %}
+    {% if link.conference_short %}
+    <abbr class="badge venue-badge" title="{{ link.conference | escape }}">{% if link.conference_badge %}{{ link.conference_badge | escape }}{% else %}{{ link.conference_short | escape }}{% if link.conference_year %} {{ link.conference_year }}{% endif %}{% endif %}</abbr>
     {% endif %}
   </div>
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 20px;">
-      <div class="title"><a href="{{ link.pdf }}">{{ link.title }}</a></div>
-      <div class="author">{{ link.authors }}</div>
+  {% endif %}
+  <div class="col-sm-9" >
+      {% assign title_url = link.pdf %}{% if link.paper_page %}{% assign title_url = link.paper_page %}{% elsif include.selected and link.page %}{% assign title_url = link.page %}{% endif %}
+      <div class="title">{% if title_url %}<a href="{% include url.html url=title_url %}">{{ link.title }}</a>{% else %}{{ link.title }}{% endif %}</div>
+      {% if link.authors %}<div class="author">{{ link.authors }}</div>{% endif %}
       <div class="periodical"><em>{{ link.conference }}</em>
       </div>
+      {% if link.first_public_date %}<div class="entry-meta">First public: <time datetime="{{ link.first_public_date | date: '%Y-%m-%d' }}">{{ link.first_public_date | date: '%B %-d, %Y' }}</time></div>{% endif %}
+      {% if link.contribution %}<p>{{ link.contribution }}</p>{% endif %}
     <div class="links">
       {% if link.pdf %} 
-      <a href="{{ link.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">PDF</a>
+      <a href="{% include url.html url=link.pdf %}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener" style="font-size:12px;">{{ link.pdf_label | default: 'Paper' }}</a>
       {% endif %}
+      {% if link.paper_page %}<a href="{% include url.html url=link.paper_page %}" class="btn btn-sm">Paper page</a>{% endif %}
+      {% if link.openreview %}<a href="{{ link.openreview | escape }}" class="btn btn-sm">OpenReview</a>{% endif %}
       {% if link.code %} 
-      <a href="{{ link.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Code</a>
+      <a href="{% include url.html url=link.code %}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener" style="font-size:12px;">Code</a>
       {% endif %}
-      {% if link.page %} 
-      <a href="{{ link.page }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">Project Page</a>
+      {% if link.page and link.page != link.paper_page %} 
+      <a href="{% include url.html url=link.page %}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener" style="font-size:12px;">Project</a>
       {% endif %}
       {% if link.bibtex %} 
-      <a href="{{ link.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank" style="font-size:12px;">BibTex</a>
+      <a href="{% include url.html url=link.bibtex %}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener" style="font-size:12px;">BibTex</a>
       {% endif %}
+      {% include publication-links.html paper=link %}
       {% if link.notes %} 
       <strong> <i style="color:#e74d3c">{{ link.notes }}</i></strong>
       {% endif %}
@@ -43,7 +51,6 @@
   </div>
 </div>
 </li>
-<br>
 
 {% endfor %}
 

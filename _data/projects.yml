@@ -1,0 +1,32 @@
+# Research series and project summaries, based on Yunshu_resume.pdf.
+# Paper metadata and actual resource URLs stay in publications.yml.
+- id: diffusion-language-models
+  title: Diffusion Language Models
+  description: The DSL series studies robust parallel decoding and efficient, high-quality language generation.
+  projects:
+    - id: dsl
+      title: Discrete Stochastic Localization (DSL) — NeurIPS 2026
+      paper_id: discrete-stochastic-localization
+      featured: true
+      description: Training one denoiser across mixed corruption regimes to improve the quality and efficiency of non-autoregressive text generation.
+    - id: dsl-llada
+      title: DSL-LLaDA
+      paper_id: dsl-llada
+      featured: true
+      description: Scaling the DSL approach to LLaDA-8B for high-quality few-step generation and selective error correction.
+    - id: dsl-workshop
+      title: Discrete Stochastic Localization — NeurIPS 2025 Workshop
+      paper_id: discrete-stochastic-localization-workshop
+      description: The workshop version introducing DSL for non-autoregressive generation.
+- id: diffusion-training-and-world-models
+  title: Diffusion Training and World Models
+  description: Improving diffusion training and studying generative worlds under counterfactual interventions.
+  projects:
+    - id: contrastive-diffusion
+      title: Contrastive Diffusion Loss (CDL)
+      paper_id: contrastive-diffusion-loss
+      description: Contrastive training for better diffusion modeling and image sampling quality.
+    - id: multiverse-mechanica
+      title: Multiverse Mechanica
+      paper_id: multiverse-mechanica
+      description: A testbed for learning game mechanics through counterfactual worlds.

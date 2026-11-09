@@ -1,0 +1,22 @@
+---
+layout: homepage
+---
+<article class="post">
+  <p><a href="{{ '/blog/' | relative_url }}">&larr; Back to Blog</a></p>
+  <div class="post-heading">
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.draft %}<p class="draft-notice">Draft / example — for local preview only.</p>{% endif %}
+    <p class="entry-meta">First published <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time>{% if page.updated %}<br>Last updated <time datetime="{{ page.updated | date: '%Y-%m-%d' }}">{{ page.updated | date: '%B %-d, %Y' }}</time>{% endif %}</p>
+    {% if page.description %}<p>{{ page.description | escape }}</p>{% endif %}
+    {% include tags.html tags=page.tags %}
+    {% capture related_links %}
+      {% include resource-links.html item=page %}
+      {% for paper_id in page.paper_ids %}{% assign paper = site.data.publications.main | where: 'id', paper_id | first %}{% if paper %}<a href="{{ '/publications/' | relative_url }}#paper-{{ paper.id | escape }}">Paper: {{ paper.title | escape }}</a>{% endif %}{% endfor %}
+      {% if page.content_id %}{% assign talks = site.data.talks | where_exp: 'talk', 'talk.published != false' | sort: 'date' | reverse %}{% for talk in talks %}{% if talk.post_ids contains page.content_id %}<a href="{{ '/talks/' | relative_url }}#talk-{{ talk.id | escape }}">Talk: {{ talk.title | escape }}</a>{% endif %}{% endfor %}{% endif %}
+    {% endcapture %}
+    {% assign related_links = related_links | strip %}
+    {% if related_links != empty %}<div class="resource-links" aria-label="Related papers and posts">{{ related_links }}</div>{% endif %}
+  </div>
+  <div class="post-body">{{ content }}</div>
+  <p><a href="{{ '/blog/' | relative_url }}">&larr; Back to Blog</a></p>
+</article>
